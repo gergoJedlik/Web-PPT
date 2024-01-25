@@ -7,7 +7,7 @@ from os import listdir
 
 pygame.init()
 
-pygame.display.set_caption("Gege's game")
+pygame.display.set_caption("Platformer Base")
 
 WIDTH, HEIGHT = 1280, 720
 FPS = 60
@@ -55,7 +55,7 @@ def get_block(size):
 class Player(pygame.sprite.Sprite):
     COLOR = (255, 0, 0)
     GRAV = 1
-    SPRITES = load_sprite_sheets('MainCharacters', 'NinjaFrog', 32, 32, True)
+    SPRITES = load_sprite_sheets('MainCharacters', 'PinkMan', 32, 32, True)
     ANIMATION_DELAY = 2
 
     def __init__(self, x, y, width, height):
@@ -279,7 +279,7 @@ def handle_movement(player, objects):
 
 def main(window) -> None:
     clock = pygame.time.Clock()
-    bg, bg_image = get_background('Gray.png')
+    bg, bg_image = get_background('Blue.png')
 
     block_size = 96
 
