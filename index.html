@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+    font-family: "Lato", sans-serif;
+  }
+
+  .sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sidenav a {
+    padding: 5% 0; /* Adjust vertical padding */
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    text-align: center;
+    line-height: normal;
+    height: auto;
+  }
+
+  .sidenav a:hover {
+    color: #f1f1f1;
+  }
+
+  .sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    transition: 0.5s;
+  }
+
+  .menu-button-container {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    transition: left 0.5s;
+  }
+
+  .menu-button-container img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+
+  @media screen and (max-height: 450px) {
+    .sidenav {
+      padding-top: 15px;
+    }
+    
+    .sidenav a {
+      font-size: 18px;
+    }
+  }
+
+</style>
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <a href="#">Aktív játékállapot</a>
   <a href="#">Nem aktív játékállapot</a>
   <a href="#">Függvények</a>
@@ -15,18 +85,33 @@
 
 <div class="cim">Pygame</div>
 <p class="alcim">4. fejezet</p>
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+
+
+<div id="mySidenav" class="sidenav">
+  <a href="#" class="text-center">Aktív játékállapot</a>
+  <a href="#" class="text-center">Nem aktív játékállapot</a>
+  <a href="#" class="text-center">Függvények használata</a>
+</div>
+
+<div id="menuButtonContainer" class="menu-button-container">
+  <img id="menuButton" src="kepek/menu.png" onclick="toggleNav()">
+</div>
 
 
 
 <script>
-function openNav() {
-  document.getElementById("mySidenav").style.width = "90%";
-}
+  function toggleNav() {
+    var sidenav = document.getElementById("mySidenav");
+    var menuButtonContainer = document.getElementById("menuButtonContainer");
 
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
+    if (sidenav.style.width === "0px" || sidenav.style.width === "") {
+      sidenav.style.width = "90%";
+      menuButtonContainer.style.left = "90%";
+    } else {
+      sidenav.style.width = "0";
+      menuButtonContainer.style.left = "0";
+    }
+  }
 </script>
    
 </body>
