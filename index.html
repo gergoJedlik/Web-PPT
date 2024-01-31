@@ -4,76 +4,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    body {
-    font-family: "Lato", sans-serif;
-  }
-
-  .sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    background-color: #111;
-    overflow-x: hidden;
-    transition: 0.5s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .sidenav a {
-    padding: 5% 0; /* Adjust vertical padding */
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-    text-align: center;
-    line-height: normal;
-    height: auto;
-  }
-
-  .sidenav a:hover {
-    color: #f1f1f1;
-  }
-
-  .sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    transition: 0.5s;
-  }
-
-  .menu-button-container {
-    position: fixed;
-    top: 20px;
-    left: 0;
-    transition: left 0.5s;
-  }
-
-  .menu-button-container img {
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
-  }
-
-  @media screen and (max-height: 450px) {
-    .sidenav {
-      padding-top: 15px;
-    }
-    
-    .sidenav a {
-      font-size: 18px;
-    }
-  }
-
-</style>
 </head>
 <body>
 
@@ -97,22 +27,8 @@
   <img id="menuButton" src="kepek/menu.png" onclick="toggleNav()">
 </div>
 
+<div id="content"></div>
 
-
-<script>
-  function toggleNav() {
-    var sidenav = document.getElementById("mySidenav");
-    var menuButtonContainer = document.getElementById("menuButtonContainer");
-
-    if (sidenav.style.width === "0px" || sidenav.style.width === "") {
-      sidenav.style.width = "90%";
-      menuButtonContainer.style.left = "90%";
-    } else {
-      sidenav.style.width = "0";
-      menuButtonContainer.style.left = "0";
-    }
-  }
-</script>
-   
+<script src="app.js"></script>
 </body>
 </html> 
