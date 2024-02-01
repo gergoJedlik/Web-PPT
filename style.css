@@ -5,6 +5,12 @@
 body {
   font-family: "Lato", sans-serif;
   overflow: hidden;
+  background-color: blue;
+}
+
+#temacim{
+  margin: auto;
+  text-align: center;
 }
 
 @media screen and (max-height: 450px) {
@@ -67,6 +73,10 @@ body {
   text-align: center;
   line-height: normal;
   height: auto;
+}
+
+#mySidenav a:hover{
+  cursor:  pointer;
 }
 
 .sidenav a:hover {
