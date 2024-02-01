@@ -19,6 +19,7 @@ function activeContent() {
 
   toggleNav()
 }
+// -------------jquery.load---------------
 
 function nonactiveContent() {
   const contentBox = document.getElementById("content");
