@@ -5,7 +5,7 @@
 body {
   font-family: "Lato", sans-serif;
   overflow: hidden;
-  background-color: #121212;
+  background-color: #0d1321;
   color: white;
 }
 
@@ -68,7 +68,7 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #3e5c76;
   overflow-x: hidden;
   transition: 0.5s;
   display: flex;
