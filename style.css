@@ -5,7 +5,8 @@
 body {
   font-family: "Lato", sans-serif;
   overflow: hidden;
-  background-color: blue;
+  background-color: #121212;
+  color: white;
 }
 
 #temacim{
@@ -23,17 +24,31 @@ body {
   }
 }
 
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
 .cim {
   font-family: 'Fizzy Soda', sans-serif;
   font-size: 40px;
   text-align: center;
-  padding: 50px;
+  padding: 35px;
   background-color: aqua;
   width: fit-content;
   margin: auto;
   border-radius: 50px;
   box-shadow: #818181;
-  margin-top: 15px
+  margin-top: 20px;
+  animation: float 5s infinite ease-in-out alternate;
+  color: black;
 }
 
 .alcim {
@@ -113,4 +128,13 @@ body {
   .sidenav a {
     font-size: 18px;
   }
+}
+
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Ensure particles are behind other content */
 }

@@ -1,107 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Background with Particles</title>
+  <!-- Include particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <style>
-      body {
-      font-family: "Lato", sans-serif;
-    }
-
-    .sidenav {
-      height: 100%;
-      width: 0;
+    /* Ensure the canvas covers the entire viewport */
+    #particles-js {
       position: fixed;
-      z-index: 1;
       top: 0;
       left: 0;
-      background-color: #111;
+      width: 100%;
+      height: 100%;
+      z-index: -1; /* Ensure particles are behind other content */
+    }
+    
+    /* Styles for your content */
+    body {
+      font-family: "Lato", sans-serif;
       overflow-x: hidden;
-      transition: 0.5s;
+      margin: 0;
+      padding: 0;
+      height: 100vh;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
+      background-color: #151515;
     }
 
-    .sidenav a {
-      padding: 5% 0; /* Adjust vertical padding */
-      text-decoration: none;
-      font-size: 25px;
-      color: #818181;
-      display: block;
-      transition: 0.3s;
+    #temacim {
       text-align: center;
-      line-height: normal;
-      height: auto;
+      color: #ffffff;
     }
 
-    .sidenav a:hover {
-      color: #f1f1f1;
+    .cim {
+      font-size: 40px;
+      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      right: 25px;
-      font-size: 36px;
-      margin-left: 50px;
-      transition: 0.5s;
+    .alcim {
+      font-size: 20px;
+      margin-top: 10px;
     }
-
-    .menu-button-container {
-      position: fixed;
-      top: 20px;
-      left: 0;
-      transition: left 0.5s;
-    }
-
-    .menu-button-container img {
-      width: 50px;
-      height: 50px;
-      cursor: pointer;
-    }
-
-    @media screen and (max-height: 450px) {
-      .sidenav {
-        padding-top: 15px;
-      }
-      
-      .sidenav a {
-        font-size: 18px;
-      }
-    }
-
   </style>
 </head>
 <body>
+  <!-- Particle container -->
+  <div id="particles-js"></div>
 
-<div id="mySidenav" class="sidenav">
-  <a href="#" class="text-center">Aktív játékállapot</a>
-  <a href="#" class="text-center">Nem aktív játékállapot</a>
-  <a href="#" class="text-center">Függvények használata</a>
-</div>
+  <div id="temacim">
+    <div class="cim">Welcome to Our Site</div>
+    <div class="alcim">Explore our services and products</div>
+  </div>
 
-<h2>Animated Sidenav Example Full Width</h2>
-<p>Click on the element below to open the navigation menu.</p>
-<div id="menuButtonContainer" class="menu-button-container">
-  <img id="menuButton" src="kepek/menu.png" onclick="toggleNav()">
-</div>
-
-<script>
-  function toggleNav() {
-    var sidenav = document.getElementById("mySidenav");
-    var menuButtonContainer = document.getElementById("menuButtonContainer");
-
-    if (sidenav.style.width === "0px" || sidenav.style.width === "") {
-      sidenav.style.width = "90%";
-      menuButtonContainer.style.left = "90%";
-    } else {
-      sidenav.style.width = "0";
-      menuButtonContainer.style.left = "0";
-    }
-  }
-</script>
-
+  <!-- Particle settings -->
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": {
+          "value": 80,
+          "density": {
+            "enable": true,
+            "value_area": 800
+          }
+        },
+        "color": {
+          "value": "#ffffff"
+        },
+        "shape": {
+          "type": "circle",
+          "stroke": {
+            "width": 0,
+            "color": "#000000"
+          },
+          "polygon": {
+            "nb_sides": 5
+          }
+        },
+        "opacity": {
+          "value": 0.5,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 1,
+            "opacity_min": 0.1,
+            "sync": false
+          }
+        },
+        "size": {
+          "value": 3,
+          "random": true,
+          "anim": {
+            "enable": false,
+            "speed": 40,
+            "size_min": 0.1,
+            "sync": false
+          }
+        },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#ffffff",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": {
+          "enable": true,
+          "speed": 6,
+          "direction": "none",
+          "random": false,
+          "straight": false,
+          "out_mode": "out",
+          "bounce": false,
+          "attract": {
+            "enable": false,
+            "rotateX": 600,
+            "rotateY": 1200
+          }
+        }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": {
+            "enable": true,
+            "mode": "repulse"
+          },
+          "onclick": {
+            "enable": true,
+            "mode": "push"
+          },
+          "resize": true
+        },
+        "modes": {
+          "grab": {
+            "distance": 400,
+            "line_linked": {
+              "opacity": 1
+            }
+          },
+          "bubble": {
+            "distance": 400,
+            "size": 40,
+            "duration": 2,
+            "opacity": 8,
+            "speed": 3
+          },
+          "repulse": {
+            "distance": 200,
+            "duration": 0.4
+          },
+          "push": {
+            "particles_nb": 4
+          },
+          "remove": {
+            "particles_nb": 2
+          }
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
 </body>
 </html>
