@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 
 <div id="mySidenav" class="sidenav">
   <a class="text-center" onclick="activeContent()">Aktív játékállapot</a>
@@ -13,15 +16,23 @@
   <a class="text-center" onclick="functionsContent()">Függvények használata</a>
 </div>
 
-<div class="cim">Pygame</div>
-<p class="alcim">4. fejezet</p>
+
+  <div class="cim">Pygame</div>
+  <p class="alcim">4. fejezet</p>
+
 
 <div id="menuButtonContainer" class="menu-button-container">
   <img id="menuButton" src="kepek/menu.png" onclick="toggleNav()">
 </div>
 
-<div id="content"></div>
 
-<script src="app.js"></script>
+  <div id="content" class="text-center">
+    <p>Üdvözlünk a weboldalon!</p>
+    <p>Ezen az oldalon áttekintjük az aktív és nem aktív játékállapotokat, valamint bemutatjuk a releváns függvényeket, hogy testre szabhasd a játékod.<br>
+      Kezdéshez kattints a bal felső sarokban található ikonra és válaszd ki azt a témát, amiről olvasni szeretnél!</p>
+  </div>
+
+  <script src="app.js"></script>
 </body>
-</html> 
+
+</html>
