@@ -2,26 +2,19 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div id="mySidenav" class="sidenav">
-  <a href="#">Aktív játékállapot</a>
-  <a href="#">Nem aktív játékállapot</a>
-  <a href="#">Függvények</a>
+  <a class="text-center" onclick="activeContent()">Aktív játékállapot</a>
+  <a class="text-center" onclick="nonactiveContent()">Nem aktív játékállapot</a>
+  <a class="text-center" onclick="functionsContent()">Függvények használata</a>
 </div>
 
 <div class="cim">Pygame</div>
 <p class="alcim">4. fejezet</p>
-
-
-<div id="mySidenav" class="sidenav">
-  <a href="#" class="text-center">Aktív játékállapot</a>
-  <a href="#" class="text-center">Nem aktív játékállapot</a>
-  <a href="#" class="text-center">Függvények használata</a>
-</div>
 
 <div id="menuButtonContainer" class="menu-button-container">
   <img id="menuButton" src="kepek/menu.png" onclick="toggleNav()">
