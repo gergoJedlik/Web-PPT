@@ -58,7 +58,9 @@ body {
     margin: auto;
     border-radius: 50px;
     box-shadow: #818181;
+    margin-top: 15px
 }
+
 .alcim{
     font-family: 'Nihonium113 Console', sans-serif;
     font-size: 30px;
