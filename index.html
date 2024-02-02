@@ -1,12 +1,43 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Játékfejlesztés pythonban - pygame 4. fejezet</title>
-    <p>szia</p>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <title>PyGame - 4. fejezet</title>
 </head>
+
 <body>
-     
+
+<div id="particles-js"></div>
+
+<div id="mySidenav" class="sidenav">
+  <a class="text-center" onclick="activeContent()">Aktív játékállapot</a>
+  <a class="text-center" onclick="nonactiveContent()">Nem aktív játékállapot</a>
+  <a class="text-center" onclick="functionsContent()">Függvények használata</a>
+</div>
+
+
+  <div class="cim">Pygame</div>
+  <p class="alcim">4. fejezet</p>
+
+
+<div id="menuButtonContainer" class="menu-button-container">
+  <img id="menuButton" src="kepek/menu.png" onclick="toggleNav()">
+</div>
+
+
+  <div id="content" class="text-center">
+    <h1>Üdvözlünk a weboldalon!</h1>
+    <p>Ezen az oldalon áttekintjük az aktív és nem aktív játékállapotokat, valamint bemutatjuk a releváns függvényeket, hogy testre szabhasd a játékod.<br>
+      Kezdéshez kattints a bal felső sarokban található ikonra és válaszd ki azt a témát, amiről olvasni szeretnél!</p>
+  </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="particle.js"></script>
+<script src="app.js"></script>
 </body>
+
 </html>
