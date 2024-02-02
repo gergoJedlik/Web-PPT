@@ -5,6 +5,7 @@ import pygame
 import random
 from os import listdir
 
+
 pygame.init()
 
 pygame.display.set_caption("Gege's game")
@@ -43,11 +44,14 @@ def load_sprite_sheets(dir1, dir2, width, height, direction=False):
 
     return all_sprites
 
-def get_block(size):
+def get_block(size, underground=False):
     path = os.path.join('assets', 'Terrain', 'Terrain.png')
     image = pygame.image.load(path).convert_alpha()
     surface = pygame.Surface((size, size),pygame.SRCALPHA, 32)
-    rect = pygame.Rect(96, 0, size, size)
+    if underground:
+        rect = pygame.Rect(96, 16, size, size)
+    else:
+        rect = pygame.Rect(96, 0, size, size)
     surface.blit(image, (0, 0), rect)
     return pygame.transform.scale2x(surface)
 
@@ -64,12 +68,13 @@ class Player(pygame.sprite.Sprite):
         self.x_vel = 0
         self.y_vel = 0
         self.mask = None
-        self.direction = 'left'
+        self.direction = 'right'
         self.animation_count = 0
         self.fall_count = 0
         self.jump_count = 0
         self.hit = False
         self.hit_count = 0
+        self.hp = 3
 
     def jump(self):
         self.y_vel = -self.GRAV * 7.5 
@@ -83,6 +88,8 @@ class Player(pygame.sprite.Sprite):
         self.rect.y += dy
 
     def make_hit(self):
+        if self.hit_count == 0:
+            self.hp -= 1
         self.hit = True
         self.hit_count = 0
 
@@ -149,8 +156,8 @@ class Player(pygame.sprite.Sprite):
         self.y_vel *= -1
 
 
-    def draw(self, window, offset_x):
-        window.blit(self.sprite, (self.rect.x - offset_x, self.rect.y))
+    def draw(self, window, offset_x, offset_y):
+        window.blit(self.sprite, (self.rect.x - offset_x, self.rect.y - offset_y))
 
 class Object(pygame.sprite.Sprite):
     def __init__(self, x, y, width, height, name=None) -> None:
@@ -161,13 +168,13 @@ class Object(pygame.sprite.Sprite):
         self.height = height
         self.name = name
 
-    def draw(self, win, offset_x):
-        win.blit(self.image, (self.rect.x - offset_x, self.rect.y))
+    def draw(self, win, offset_x, offset_y):
+        win.blit(self.image, (self.rect.x - offset_x, self.rect.y - offset_y))
 
 class Block(Object):
-    def __init__(self, x, y, size) -> None:
+    def __init__(self, x, y, size, underground=False) -> None:
         super().__init__(x, y, size, size)
-        block = get_block(size)
+        block = get_block(size, underground)
         self.image.blit(block, (0, 0))
         self.mask = pygame.mask.from_surface(self.image)
 
@@ -216,14 +223,14 @@ def get_background(name):
 
     return tiles, image
 
-def draw(window, bg, bg_image, player, objects, offset_x):
+def draw(window, bg, bg_image, player, objects, offset_x, offset_y):
     for tile in bg:
         window.blit(bg_image, tile)
 
     for obj in objects:
-        obj.draw(window, offset_x)
+        obj.draw(window, offset_x, offset_y)
 
-    player.draw(window, offset_x)
+    player.draw(window, offset_x, offset_y)
 
     pygame.display.update()
 
@@ -274,23 +281,36 @@ def handle_movement(player, objects):
         if obj and obj.name == 'fire':
             player.make_hit()
 
+def write_on_screen(window, messege: str, color: tuple=(255, 255, 255)):
+    font = pygame.font.Font('freesansbold.ttf', 64)
+    text = font.render(messege, True, color, None)
+    textRect = text.get_rect()
+    textRect.center = (WIDTH // 2, HEIGHT // 2)
+
+    window.blit(text, textRect)
+    pygame.display.update()
 
 
 
 def main(window) -> None:
     clock = pygame.time.Clock()
     bg, bg_image = get_background('Gray.png')
+    paused = 0
 
     block_size = 96
 
-    player = Player(100, 100, 50, 50)
-    fire = Fire(100, HEIGHT - block_size - 64, 16, 32)
-    fire.on()
+    player = Player(30, 100, 50, 50)
+    fire1 = Fire(128, HEIGHT - block_size - 64, 16, 32,)
+    fire1.on()
+
     floor = [Block(i * block_size, HEIGHT - block_size, block_size) for i in range(-WIDTH // block_size, WIDTH * 2 // block_size)]
-    objects = [*floor, fire, Block(0, HEIGHT - block_size * 2, block_size), Block(block_size * 3, HEIGHT - block_size * 4, block_size)]
+    ground = [Block(i * block_size, HEIGHT, block_size, True) for i in range(-WIDTH // block_size, WIDTH * 2 // block_size)]
+    objects = [*floor, *ground, fire1,  Block(0, HEIGHT - block_size * 2, block_size), Block(block_size * 3, HEIGHT - block_size * 4, block_size)]
 
     offset_x = 0
+    offset_y = 0
     scroll_area_width = 450
+    scroll_area_height = block_size*1.2
 
     run = True
     while run:
@@ -302,17 +322,30 @@ def main(window) -> None:
                 break
 
             if event.type == pygame.KEYDOWN:
+                if event.key == pygame.K_ESCAPE and paused == 0:
+                    paused = 1
+                elif event.key == pygame.K_ESCAPE and paused == 1:
+                    paused = 0
                 if event.key == pygame.K_w and player.jump_count < 2:
                     player.jump()
-
+        
+        if player.hp <= 0:
+            write_on_screen(window, "Game Over", (255, 0, 0))
+            continue
+        if paused == 1:
+            write_on_screen(window, "Paused")
+            continue
+        
         player.loop(FPS)
-        fire.loop()
+        fire1.loop()
         handle_movement(player, objects)
-        draw(window, bg, bg_image, player, objects, offset_x)
+        draw(window, bg, bg_image, player, objects, offset_x, offset_y)
 
         if ((player.rect.right - offset_x >= WIDTH - scroll_area_width) and player.x_vel > 0) or ((player.rect.left - offset_x <= scroll_area_width) and player.x_vel < 0):
             offset_x += player.x_vel
 
+        if ((player.rect.bottom - offset_y >= HEIGHT - scroll_area_height)and player.y_vel > 0) or ((player.rect.bottom - offset_y <= scroll_area_height) and player.y_vel < 0):
+            offset_y += player.y_vel
 
     pygame.quit()
     quit()
