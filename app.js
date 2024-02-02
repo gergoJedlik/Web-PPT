@@ -4,8 +4,8 @@ function toggleNav() {
     var menuButtonContainer = document.getElementById("menuButtonContainer");
 
     if (sidenav.style.width === "0px" || sidenav.style.width === "") {
-      sidenav.style.width = "90%";
-      menuButtonContainer.style.left = "90%";
+      sidenav.style.width = "85%";
+      menuButtonContainer.style.left = "85%";
     } else {
       sidenav.style.width = "0";
       menuButtonContainer.style.left = "0";

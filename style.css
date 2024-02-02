@@ -5,7 +5,7 @@
 body {
   font-family: "Lato", sans-serif;
   overflow: hidden;
-  background-color: #0d1321;
+  background-color: #282A36;
   color: white;
 }
 
@@ -45,7 +45,6 @@ body {
   width: fit-content;
   margin: auto;
   border-radius: 50px;
-  box-shadow: #818181;
   margin-top: 20px;
   animation: float 5s infinite ease-in-out alternate;
   color: black;
@@ -55,10 +54,11 @@ body {
   font-family: 'Nihonium113 Console', sans-serif;
   font-size: 30px;
   text-align: center;
+  color: aqua;
 }
 
-body {
-  font-family: "Lato", sans-serif;
+#content {
+  font-size: 1.2em;
 }
 
 .sidenav {
