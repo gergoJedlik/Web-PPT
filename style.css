@@ -5,8 +5,9 @@
 body {
   font-family: "Lato", sans-serif;
   overflow: hidden;
-  background-color: #282A36;
+  background-color: #0d1321;
   color: white;
+  text-align: center;
 }
 
 #temacim{
@@ -38,13 +39,14 @@ body {
 
 .cim {
   font-family: 'Fizzy Soda', sans-serif;
-  font-size: 40px;
+  font-size: 2em;
   text-align: center;
   padding: 35px;
   background-color: aqua;
   width: fit-content;
   margin: auto;
-  border-radius: 50px;
+  border-radius: 60px;
+  box-shadow: #818181;
   margin-top: 20px;
   animation: float 5s infinite ease-in-out alternate;
   color: black;
@@ -54,11 +56,6 @@ body {
   font-family: 'Nihonium113 Console', sans-serif;
   font-size: 30px;
   text-align: center;
-  color: aqua;
-}
-
-#content {
-  font-size: 1.2em;
 }
 
 .sidenav {
@@ -76,6 +73,7 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 0 25px 25px 0;
+  gap: 10%;
 }
 
 .sidenav a {
@@ -88,7 +86,10 @@ body {
   transition: 0.3s;
   text-align: center;
   line-height: normal;
-  height: auto;
+  padding: 20px 10%;
+  border-radius: 30px;
+  border: 2px solid #818181;
+  background-color: lightgray;
 }
 
 #mySidenav a:hover{
@@ -97,6 +98,7 @@ body {
 
 .sidenav a:hover {
   color: #f1f1f1;
+  background-color: darkgray;
 }
 
 .sidenav .closebtn {
