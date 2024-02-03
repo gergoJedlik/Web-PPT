@@ -4,6 +4,8 @@ function toggleNav() {
   var menuButtonContainer = document.getElementById("menuButtonContainer");
   var screenWidth = screen.width;
 
+  sidenav.classList.toggle("open");
+  
   if (screenWidth >= 1200) {
       if (sidenav.style.width === "0px" || sidenav.style.width === "") {
           sidenav.style.width = "45%";
