@@ -1,23 +1,28 @@
 
 function toggleNav() {
-    var sidenav = document.getElementById("mySidenav");
-    var menuButtonContainer = document.getElementById("menuButtonContainer");
+  var sidenav = document.getElementById("mySidenav");
+  var menuButtonContainer = document.getElementById("menuButtonContainer");
+  var screenWidth = screen.width;
 
-    let screenWidth = screen.width;
-
-    if (sidenav.style.width === "0px" || sidenav.style.width === "") {
-      if (screenWidth >= 1200) {
-        sidenav.style.width = "45%";
-        menuButtonContainer.style.width = "45%";
+  if (screenWidth >= 1200) {
+      if (sidenav.style.width === "0px" || sidenav.style.width === "") {
+          sidenav.style.width = "45%";
+          menuButtonContainer.style.left = "45%";
       } else {
-        sidenav.style.width = "85%";
-        menuButtonContainer.style.left = "85%";
+          sidenav.style.width = "0";
+          menuButtonContainer.style.left = "0";
       }
-    } else {
-      sidenav.style.width = "0";
-      menuButtonContainer.style.left = "0";
-    }
+  } else {
+      if (sidenav.style.width === "0px" || sidenav.style.width === "") {
+          sidenav.style.width = "85%";
+          menuButtonContainer.style.left = "85%";
+      } else {
+          sidenav.style.width = "0";
+          menuButtonContainer.style.left = "0";
+      }
   }
+}
+
 
 function activeContent() {
   const contentBox = document.getElementById("content");
