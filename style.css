@@ -37,18 +37,28 @@ body {
   }
 }
 
+@keyframes colorChange {
+  0%   { background-color: red; }
+  16%  { background-color: orange; }
+  33%  { background-color: yellow; }
+  50%  { background-color: green; }
+  66%  { background-color: blue; }
+  83%  { background-color: indigo; }
+  100% { background-color: violet; }
+}
+
 .cim {
   font-family: 'Fizzy Soda', sans-serif;
   font-size: 2em;
   text-align: center;
   padding: 35px;
-  background-color: aqua;
+  background-color: red; 
   width: fit-content;
   margin: auto;
   border-radius: 60px;
-  box-shadow: #818181;
+  box-shadow: 0px 0px 20px #818181; 
   margin-top: 20px;
-  animation: float 5s infinite ease-in-out alternate;
+  animation: colorChange 10s infinite alternate; 
   color: black;
 }
 
@@ -140,6 +150,7 @@ body {
   top: 20px;
   left: 0;
   transition: left 0.5s;
+  z-index: 9;
 }
 
 .img-fluid{
