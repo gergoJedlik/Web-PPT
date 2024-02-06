@@ -41,9 +41,9 @@ body {
   0%   { background-color: red; }
   16%  { background-color: orange; }
   33%  { background-color: yellow; }
-  50%  { background-color: green; }
-  66%  { background-color: blue; }
-  83%  { background-color: indigo; }
+  50%  { background-color: greenyellow; }
+  66%  { background-color: aqua; }
+  83%  { background-color: #B026FF  }
   100% { background-color: violet; }
 }
 
@@ -51,9 +51,9 @@ body {
   0%   { color: red; }
   16%  { color: orange; }
   33%  { color: yellow; }
-  50%  { color: green; }
-  66%  { color: blue; }
-  83%  { color: indigo; }
+  50%  { color: greenyellow; }
+  66%  { color: aqua; }
+  83%  { color: #B026FF ; }
   100% { color: violet; }
 }
 
@@ -164,6 +164,13 @@ body {
   left: 0;
   transition: left 0.5s;
   z-index: 9;
+}
+
+#menuButton{
+  height: 8vh;
+  width: 8vw;
+  
+
 }
 
 .img-fluid{
