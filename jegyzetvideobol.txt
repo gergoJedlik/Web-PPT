@@ -21,6 +21,17 @@ Időzítő létrehozása:
     - változó létrehozás / timer_1 = pygame.USEREVENT + 1 (több is létrehozható, de érdemes elkülöníteni egymástól, ezért van ott + 1)
     - időköz beállítás / pygame.time.set_timer(timer_1, 1000) 
         Paraméterei az esemény és milliszekundumban az időköz (ha másodpercenként szeretnénk, akkor az érték 1000) 
-Képernyőt elhagyó játékobjektumok törlése:
-    Ha egy olyan játékról van szó, ahol sok objektum megjelenik újra és újra, de később elhagyja a képernyőt, akkor fontos gondolnunk a törlésükre, mivel ennek a listája feleslegesen telik fel a játék során és a memóriát nagy mértékben terheli.
+
+A játékobjektumról:
+    Mozgása(emelkedés, oldalirányú mozgás):
+        Feladatunk egy for ciklust létrehozni az enumerate függvénnyel, amiben a rect objektumának koordinátáit növeljük vagy csökkentjük attól függően, hogy emelkedni vagy ereszkedni fognak ezek. Célszerű egy konstansban meghatározni a kivonandó vagy hozzáadandó értéket, amit a kód elején definiálunk. Majd egy számgenerálással megoldjuk azt, hogy véletlenszerűen mozogjanak az objektumok.
+
+    Képernyőt elhagyóak törlése:
+        Ha egy olyan játékról van szó, ahol sok objektum megjelenik újra és újra, de később elhagyja a képernyőt, akkor fontos gondolnunk a törlésükre, mivel ennek a listája feleslegesen telik fel a játék során és a memóriát nagy mértékben terheli. A példán látható, hogy megvizsgáljuk a lista egy tagjának az attribútumértékét és ha átlépi a megadott tartományt, akkor azok az elemek törlésre kerülnek.
     
+    Találat vizsgálata:
+        A collidepoint() metódussal, értéke az egér pozíciója amit a get_pos metódussal kapunk meg. Részfeltételként vesszük, hogy csak akkor legyen érvényes találat, ha az egér egyik gombját lenyomjuk. Ha a feltételek teljesülnek, töröljük az elemet a listából, és a pontszámot növeljük.
+        Pontszám megjelenítése: A pontszám változóját és a betűtípust a ciklus előtt definiáljuk, a színt jelen esetben a kód elején konstansként. A megjelenítés a ciklus után történik.
+            
+Hátralévő játékidő kiszámítása és megjelenítése:
+    Elsőként a kód elején definiáljuk a játékidőt milliszekundumban egy konstansként. A kiinduló időt a ciklus előtt a pygame.time.get_ticks() metódussal hozzuk létre egy változóban. A ciklus után a képen látható változók szükségesek a kiszámításhoz és megjelenítéshez.
