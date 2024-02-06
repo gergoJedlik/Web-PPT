@@ -37,7 +37,7 @@ body {
   }
 }
 
-@keyframes colorChange {
+@keyframes bgColorChange {
   0%   { background-color: red; }
   16%  { background-color: orange; }
   33%  { background-color: yellow; }
@@ -46,6 +46,17 @@ body {
   83%  { background-color: indigo; }
   100% { background-color: violet; }
 }
+
+@keyframes colorChange {
+  0%   { color: red; }
+  16%  { color: orange; }
+  33%  { color: yellow; }
+  50%  { color: green; }
+  66%  { color: blue; }
+  83%  { color: indigo; }
+  100% { color: violet; }
+}
+
 
 .cim {
   font-family: 'Fizzy Soda', sans-serif;
@@ -58,7 +69,7 @@ body {
   border-radius: 60px;
   box-shadow: 0px 0px 20px #818181; 
   margin-top: 20px;
-  animation: colorChange 10s infinite alternate; 
+  animation: bgColorChange 10s infinite alternate; 
   color: black;
 }
 
@@ -66,6 +77,8 @@ body {
   font-family: 'Nihonium113 Console', sans-serif;
   font-size: 30px;
   text-align: center;
+  animation: colorChange 10s infinite alternate;
+  text-shadow: 0px 0px 10px #818181;
 }
 
 .sidenav {
