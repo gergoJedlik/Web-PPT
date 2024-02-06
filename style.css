@@ -140,6 +140,7 @@ body {
   top: 20px;
   left: 0;
   transition: left 0.5s;
+  z-index: 9;
 }
 
 .img-fluid{
