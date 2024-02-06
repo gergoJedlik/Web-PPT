@@ -35,3 +35,13 @@ A játékobjektumról:
             
 Hátralévő játékidő kiszámítása és megjelenítése:
     Elsőként a kód elején definiáljuk a játékidőt milliszekundumban egy konstansként. A kiinduló időt a ciklus előtt a pygame.time.get_ticks() metódussal hozzuk létre egy változóban. A ciklus után a képen látható változók szükségesek a kiszámításhoz és megjelenítéshez.
+
+Nem aktív játékállapot
+Nyitó- és záróképernyő feliratai:
+    Teljesen személyre szabhatóak, itt megjelenik a cím és az indításhoz szükséges billentyű leírása.
+Kétféle játékállapot létrehozása:
+    Szükséges egy logikai változó, ami azt mutatja majd meg, hogy aktív-e a játék. Ezután a játékciklust, kivéve a háttér kirajzolását egy if feltételbe tesszük, ami akkor teljesül, ha a játék(létrehozott változó) aktív. Minden ellenkező esetben pedig betöltjük a hátteret és jelen esetben még képeket is teszünk a képernyő közepére. Illetve megjelenik egy üzenet is, hogy mivel tudja elindítani a játékot. A pontszám kiírása a képen látható módon lehetséges ami a játék végeztével jeleníti azt meg.
+Játék indítása:
+    A játék nem aktív ciklusába kerül az, hogy melyik gomb lenyomásával indítható a játék, az eredeti néven egy új üres lista(ami által az elemei törlésre kerülnek minden játék alkalmával) az aktuális idő egy változóban és az a változó, ami meghatározza, hogy a játék jelenleg aktív-e egy aktív értéket felvéve.
+Megoldás a mínusz értéket felvevő játékidőre:
+    A játék aktív részében elhelyezhető egy feltétel, hogy a játékidő 0-nál véget érjen, csupán annyi, hogy ha a maradék idő kisebb, mint 0, akkor a változó, ami megmondja, hogy a játék aktív-e, vegyen fel hamis értéket.
