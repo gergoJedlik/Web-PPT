@@ -1,3 +1,26 @@
+$(document).ready(function () {
+  $('#aktiv').click(function () {
+    $('#content').html('');
+    $('#content').load('aktiv_data.txt')
+
+    toggleNav()
+  })
+
+  $('#nemaktiv').click(function () {
+    $('#content').html('');
+    $('#content').load('nemaktiv_data.txt')
+
+    toggleNav()
+  })
+
+  $('#fuggvenyek').click(function () {
+    $('#content').html('');
+    $('#content').load('fuggvenyek_data.txt')
+
+    toggleNav()
+  })
+});
+
 
 function toggleNav() {
   var sidenav = document.getElementById("mySidenav");
@@ -23,30 +46,4 @@ function toggleNav() {
           menuButtonContainer.style.left = "0";
       }
   }
-}
-
-
-function activeContent() {
-  const contentBox = document.getElementById("content");
-  contentBox.innerHTML = ''
-  contentBox.innerHTML += '<div id="temacim"><h1 class="text-center">Aktív Játékállapot</h1></div>';
-
-  toggleNav()
-}
-// -------------jquery.load---------------
-
-function nonactiveContent() {
-  const contentBox = document.getElementById("content");
-  contentBox.innerHTML = ''
-  contentBox.innerHTML += '<div id="temacim"><h1 class="text-center">Nem Aktív Játékállapot</h1></div>';
-
-  toggleNav()
-}
-
-function functionsContent() {
-  const contentBox = document.getElementById("content");
-  contentBox.innerHTML = ''
-  contentBox.innerHTML += '<div id="temacim"><h1 class="text-center">Függvények</h1></div>';
-
-  toggleNav()
 }

@@ -4,7 +4,7 @@
 
 body {
   font-family: "Lato", sans-serif;
-  overflow: hidden;
+  overflow: visible;
   background-color: #0d1321;
   color: white;
   text-align: center;
@@ -140,6 +140,11 @@ body {
   top: 20px;
   left: 0;
   transition: left 0.5s;
+}
+
+.img-fluid{
+  max-width: 80%;
+  align-items: center;
 }
 
 .menu-button-container img {
