@@ -4,7 +4,7 @@
 
 body {
   font-family: "Lato", sans-serif;
-  overflow: visible;
+  overflow: hidden;
   background-color: #0d1321;
   color: white;
   text-align: center;
@@ -37,39 +37,18 @@ body {
   }
 }
 
-@keyframes bgColorChange {
-  0%   { background-color: red; }
-  16%  { background-color: orange; }
-  33%  { background-color: yellow; }
-  50%  { background-color: greenyellow; }
-  66%  { background-color: aqua; }
-  83%  { background-color: #B026FF  }
-  100% { background-color: violet; }
-}
-
-@keyframes colorChange {
-  0%   { color: red; }
-  16%  { color: orange; }
-  33%  { color: yellow; }
-  50%  { color: greenyellow; }
-  66%  { color: aqua; }
-  83%  { color: #B026FF ; }
-  100% { color: violet; }
-}
-
-
 .cim {
   font-family: 'Fizzy Soda', sans-serif;
   font-size: 2em;
   text-align: center;
   padding: 35px;
-  background-color: red; 
+  background-color: aqua;
   width: fit-content;
   margin: auto;
   border-radius: 60px;
-  box-shadow: 0px 0px 20px #818181; 
+  box-shadow: #818181;
   margin-top: 20px;
-  animation: bgColorChange 10s infinite alternate; 
+  animation: float 5s infinite ease-in-out alternate;
   color: black;
 }
 
@@ -77,12 +56,10 @@ body {
   font-family: 'Nihonium113 Console', sans-serif;
   font-size: 30px;
   text-align: center;
-  animation: colorChange 10s infinite alternate;
-  text-shadow: 0px 0px 10px #818181;
 }
 
 .sidenav {
-  height: 100%;               
+  height: 100%;
   width: 0;
   position: fixed;
   z-index: 1;
@@ -163,19 +140,6 @@ body {
   top: 20px;
   left: 0;
   transition: left 0.5s;
-  z-index: 9;
-}
-
-#menuButton{
-  height: 8vh;
-  width: 8vw;
-  
-
-}
-
-.img-fluid{
-  max-width: 80%;
-  align-items: center;
 }
 
 .menu-button-container img {
@@ -212,4 +176,8 @@ body {
 #nem-aktív-játékállapot.show,
 #függvények.show {
   display: block;
+}
+
+.navbarlink{
+  display: none;
 }

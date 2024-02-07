@@ -1,26 +1,3 @@
-$(document).ready(function () {
-  $('#aktiv').click(function () {
-    $('#content').html('');
-    $('#content').load('aktiv_data.txt')
-
-    toggleNav()
-  })
-
-  $('#nemaktiv').click(function () {
-    $('#content').html('');
-    $('#content').load('nemaktiv_data.txt')
-
-    toggleNav()
-  })
-
-  $('#fuggvenyek').click(function () {
-    $('#content').html('');
-    $('#content').load('fuggvenyek_data.txt')
-
-    toggleNav()
-  })
-});
-
 
 function toggleNav() {
   var sidenav = document.getElementById("mySidenav");
@@ -46,4 +23,29 @@ function toggleNav() {
           menuButtonContainer.style.left = "0";
       }
   }
+}
+
+
+function activeContent() {
+  aktiv.style.display = "block";
+  nemaktiv.style.display = "none";
+  fuggvenyek.style.display = "none";
+  content.style.display = "none";
+  toggleNav()
+}
+
+function nonactiveContent() {
+  aktiv.style.display = "none";
+  nemaktiv.style.display = "block";
+  fuggvenyek.style.display = "none";
+  content.style.display = "none";
+  toggleNav()
+}
+
+function functionsContent() {
+  aktiv.style.display = "none";
+  nemaktiv.style.display = "none";
+  fuggvenyek.style.display = "block";
+  content.style.display = "none";
+  toggleNav()
 }
