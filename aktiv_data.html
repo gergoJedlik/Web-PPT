@@ -7,61 +7,108 @@
 
   <div class="row">
     <div class="col-12">
-      <h3 class="text-left ml-5 mt-5">Altéma 1</h3>
+      <h3 class="text-left ml-5 mt-5">Játékablak létrehozása:</h3>
     </div>
   </div>
   <div class="row mb-3">
     <div class="col-md-12 col-lg-6">
-      <p class="text-justify mx-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates quae nam, laborum, nihil dolores quia,
-        consectetur exercitationem modi doloremque quidem quam libero sint totam. Non praesentium suscipit magnam
-        sequi repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nihil eligendi assumenda, corrupti cupiditate
-        adipisci porro! Exercitationem numquam optio labore excepturi, sed maiores temporibus in aliquid repellendus
-        perspiciatis, et nisi!
+      <p class="text-justify mx-1">pygame.display.set_caption("játékablak neve") <br>
+        <strong>Háttérkép betöltése:</strong> <br>
+        Következőként a hátteret töltjük be, amit egy változó segítségével tehetünk meg. <br>
+        &emsp;&emsp;<span class="code">bg_surf = pygame.image.load("elérés helye/kép neve").convert_alpha()</span> <br>
+        Majd ennek elhelyezkedését állítjuk be. <br>
+        &emsp;&emsp;<span class="code">bg_rect = bg_surf.get_rect(bottomLeft=(0, HEIGHT))</span> <br>
+      </p>
+      <img class="img img-fluid" src="peldakepek\kepernyo_es_hatterkep.png" alt="Example code">
+      <p class="text-justify mx-1 mb-3"><i>&emsp;&emsp;Attribútumként pedig azt vesszük, hogy hova szeretnénk igazítani
+          a képet a játékablakban, jelen esetben ez a bal alsó sarokhoz igazítani</i></p> <br>
+      <p class="text-justify mx-1">Ezek után átlépünk a játék kódjához és ott meghívjuk a hátteret. <br>
+        &emsp;&emsp;<span class="code">screen.blit(bg_surf, bg_rect)</span> <br>
+        Futtatás után előfordulhat, hogy a kép kisebb, mint a játékablak, ezt többféleképpen javíthatjuk. Természetesen
+        ezek a megoldások nem csak háttérképre vonatkoznak, bármilyen, a játékban megjelenő képre alkalmazhatjuk. <br>
+        &emsp;&emsp; - képszerkesztő programban átméretezzük a képet <br>
+        &emsp;&emsp; - kódban manipuláljuk a képet <br>
+        &emsp;&emsp;Az utóbbit a kép betöltése után tesszük lehetővé a például a transform.rotozoom függvényt használva.
+        <br>
+        &emsp;&emsp;&emsp;&emsp;<span class="code">bg_surf = pygame.transform.rotozoom(bg_surf, 0, 1.3)</span> <br>
+        &emsp;&emsp;&emsp;&emsp;<i>A paraméterei maga a módosításra váró kép, a forgatási szög (ha nem szeretnénk
+          forgatni, akkor ez 0) és a nagyítás mértéke</i>
       </p>
     </div>
     <div class="col-md-12 col-lg-6">
-      <img class="img-fluid" src="kepek\menu.png" alt="img">
+      <img class="img-fluid mb-5" src="kepek\altema1kep2.png" alt="img">
+      <img class="img-fluid mt-2" src="kepek\altema1kep.png" alt="img">
     </div>
   </div>
 
   <div class="row">
     <div class="col-12">
-      <h3 class="text-left ml-5 mt-5">Altéma 2</h3>
+      <h3 class="text-left ml-5 mt-5">Időzítő létrehozása:</h3>
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-md-12 col-lg-6">
-      <p class="text-justify mx-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates quae nam, laborum, nihil dolores quia,
-        consectetur exercitationem modi doloremque quidem quam libero sint totam. Non praesentium suscipit magnam
-        sequi repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nihil eligendi assumenda, corrupti cupiditate
-        adipisci porro! Exercitationem numquam optio labore excepturi, sed maiores temporibus in aliquid repellendus
-        perspiciatis, et nisi!
+    <div class="col-12">
+      <p class="text-justify mx-1">
+        Ennek feladata az események rendszeres és időzített kiváltása, például játékciklusok vagy animáció vezérlése.
+        <br>
+        <strong>Beállítása két lépésből áll:</strong> <br>
+        &emsp;&emsp; - saját pygame esemény létrehozás / <span class="code">timer_1 = pygame.USEREVENT + 1</span> <br>
+        &emsp;&emsp;&emsp;&emsp;<i>(több is létrehozható, de érdemes elkülöníteni egymástól, ezért van ott + 1)</i> <br>
+        &emsp;&emsp; - időköz beállítás / <span class="code">pygame.time.set_timer(timer_1, 1000)</span> <br>
+        &emsp;&emsp;&emsp;&emsp;<i>Paraméterei az esemény és milliszekundumban az időköz (ha másodpercenként szeretnénk,
+          akkor az érték 1000)</i>
       </p>
-    </div>
-    <div class="col-md-12 col-lg-6">
-      <img class="img-fluid" src="kepek\menu.png" alt="img">
     </div>
   </div>
 
   <div class="row">
     <div class="col-12">
-      <h3 class="text-left ml-5 mt-5">Altéma 3</h3>
+      <h3 class="text-left ml-5 mt-5">A játékobjektumról:</h3>
     </div>
   </div>
   <div class="row mb-3">
     <div class="col-md-12 col-lg-6">
-      <p class="text-justify mx-1">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates quae nam, laborum, nihil dolores quia,
-        consectetur exercitationem modi doloremque quidem quam libero sint totam. Non praesentium suscipit magnam
-        sequi repellat!
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto nihil eligendi assumenda, corrupti cupiditate
-        adipisci porro! Exercitationem numquam optio labore excepturi, sed maiores temporibus in aliquid repellendus
-        perspiciatis, et nisi!
+      <p class="text-justify mx-1"><strong>Mozgása(emelkedés, oldalirányú mozgás):</strong> <br>
+        &emsp;&emsp;Feladatunk egy for ciklust létrehozni az enumerate függvénnyel, amiben a rect objektumának
+        koordinátáit növeljük vagy csökkentjük attól függően, hogy emelkedni vagy ereszkedni fognak ezek. Célszerű egy
+        konstansban meghatározni a kivonandó vagy hozzáadandó értéket, amit a kód elején definiálunk.
+        <br>&emsp;&emsp;Majd egy számgenerálással megoldjuk azt, hogy véletlenszerűen mozogjanak az objektumok. <br>
+        <br>
+        <strong>Képernyőt elhagyóak törlése:</strong> <br>
+        &emsp;&emsp;Ha egy olyan játékról van szó, ahol sok objektum megjelenik újra és újra, de később elhagyja a
+        képernyőt, akkor fontos gondolnunk a törlésükre, mivel ennek a listája feleslegesen telik fel a játék során és a
+        memóriát nagy mértékben terheli. <br>&emsp;&emsp;A példán látható, hogy megvizsgáljuk a lista egy tagjának az
+        attribútumértékét és ha átlépi a megadott tartományt, akkor azok az elemek törlésre kerülnek. <br>
+        <br>
+        <strong>Találat vizsgálata:</strong> <br>
+        &emsp;&emsp;A <span class="code">collidepoint()</span> metódussal, értéke az egér pozíciója amit a get_pos
+        metódussal kapunk meg. Részfeltételként vesszük, hogy csak akkor legyen érvényes találat, ha az egér egyik
+        gombját lenyomjuk. Ha a feltételek teljesülnek, töröljük az elemet a listából, és a pontszámot növeljük.
+        <br>&emsp;&emsp;
+        Pontszám megjelenítése: A pontszám változóját és a betűtípust a ciklus előtt definiáljuk, a színt jelen esetben
+        a kód elején konstansként. A megjelenítés a ciklus után történik.
+
       </p>
     </div>
     <div class="col-md-12 col-lg-6">
-      <img class="img-fluid" src="kepek\menu.png" alt="img">
+      <img class="img-fluid mt-5" src="peldakepek\lufik_mozgasa_torlese.png" alt="img">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <h3 class="text-left ml-5 mt-5">Hátralévő játékidő kiszámítása és megjelenítése:</h3>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-12 col-lg-6">
+      <p class="text-justify mx-1">Elsőként a kód elején definiáljuk a játékidőt milliszekundumban egy konstansként. <br> A
+        kiinduló időt a ciklus előtt a <span class="code">pygame.time.get_ticks()</span> metódussal hozzuk létre egy változóban. A ciklus után a
+        képen látható változók szükségesek a kiszámításhoz és megjelenítéshez.
+      </p>
+    </div>
+    <div class="col-md-12 col-lg-6">
+      <img class="img-fluid" src="peldakepek\jatekido.png" alt="img">
     </div>
   </div>
 </div>

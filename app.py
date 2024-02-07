@@ -7,17 +7,19 @@ FPS = 60
 
 WIDTH, HEIGHT = 800, 600
 
-bg_c = (255, 255, 255)
-c_color = (0, 0, 0)
-
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Color Matcher")
+pygame.display.set_caption("YOUR GAMES NAME")
+
+bg_surf = pygame.image.load("elérés helye/kép neve").convert_alpha()
+bg_rect = bg_surf.get_rect(bottomLeft=(0, HEIGHT))
+
 
 clock = pygame.time.Clock()
 
-def draw(screen, win, c_color, bg_c, text="", textRect=None):
-    screen.fill(bg_c)
-    pygame.draw.circle(screen, c_color, (WIDTH//2, HEIGHT//2), 125)
+def draw(bg_surf, bg_rect):
+    screen.blit(bg_surf, bg_rect)
+
+    
     if win:
         screen.blit(text, textRect)
     pygame.display.update()

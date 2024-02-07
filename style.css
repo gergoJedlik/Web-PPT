@@ -8,6 +8,12 @@ body {
   background-color: #0d1321;
   color: white;
   text-align: center;
+  position: relative;
+}
+
+.sidenav a {
+  color: inherit;
+  text-decoration: none;
 }
 
 #temacim{
@@ -20,7 +26,7 @@ body {
     padding-top: 15px;
   }
 
-  .sidenav a {
+  .sidenav .navlink {
     font-size: 18px;
   }
 }
@@ -86,6 +92,10 @@ body {
   stroke: colorChange 10s infinite alternate;
 }
 
+.row {
+  margin-bottom: 15px;
+}
+
 .sidenav {
   height: 100%;               
   width: 0;
@@ -104,7 +114,7 @@ body {
   gap: 10%;
 }
 
-.sidenav a {
+.navlink {
   padding: 5% 0;
   text-decoration: none;
   font-size: 25px;
@@ -121,7 +131,7 @@ body {
   opacity: 0%;
 }
 
-.sidenav.open a {
+.sidenav.open .navlink {
  opacity: 100%;
 }
 
@@ -144,11 +154,11 @@ body {
   }
 }
 
-#mySidenav a:hover{
+#mySidenav .navlink:hover{
   cursor:  pointer;
 }
 
-.sidenav a:hover {
+.sidenav .navlink:hover {
   color: #f1f1f1;
   background-color: darkgray;
 }
@@ -177,15 +187,25 @@ body {
 #menuButton{
   height: 70px;
   width: 100px;
-  transform: translateX(-30px);
+  transform: translateX(-30px) translateY(50px);
   z-index: 1;
-  
+}
 
+.code {
+  font-size: 0.9em;
+  padding: 4px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  background-color: rgba(150, 150, 150, 0.2);
 }
 
 .img-fluid{
   max-width: 80%;
   align-items: center;
+}
+
+.sidebyside-imgs{
+  max-width: 100%;
 }
 
 .menu-button-container img {
@@ -215,6 +235,12 @@ body {
 
 .content-section {
   display: none;
+}
+
+.lablec p {
+  background-color: rgba(0, 0, 0, 0.3);
+  margin-bottom: 0;
+  padding: 7px;
 }
 
 /* Show active content section */
