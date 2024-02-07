@@ -1,0 +1,47 @@
+Aktív játékállapot
+Játékablak létrehozása:
+    pygame.display.set_caption("játékablak neve")
+    Háttérkép betöltése:
+    Következőként a hátteret töltjük be, amit egy változó segítségével tehetünk meg. 
+        bg_surf = pygame.image.load("elérés helye/kép neve").convert._alpha()
+    Majd ennek elhelyezkedését állítjuk be.
+        bg_rect = bg_surf.get_rect(bottomLleft=(0, HEIGHT)) 
+        Attribútumként pedig azt vesszük, hogy hova szeretnénk igazítani a képet a játékablakban, jelen esetben ez a bal alsó sarokhoz igazítani
+    Ezek után átlépünk a játék kódjához és ott meghívjuk a hátteret.
+        screen.blit(bg_surf, bg_rect)
+    Futtatás után előfordulhat, hogy a kép kisebb, mint a játékablak, ezt többféleképpen javíthatjuk. Természetesen ezek a megoldások nem csak háttérképre vonatkoznak, bármilyen, a játékban megjelenő képre alkalmazhatjuk.
+        - képszerkesztő programban átméretezzük a képet
+        - kódban manipuláljuk a képet
+            Az utóbbit a kép betöltése után tesszük lehetővé a például a transform.rotozoom függvényt használva.
+                bg_surf = pygame.transform.rotozoom(bg_surf, 0, 1.3)
+                A paraméterei maga a módosításra váró kép, a forgatási szög (ha nem szeretnénk forgatni, akkor ez 0) és a nagyítás mértéke
+Időzítő létrehozása:
+    Ennek feladata az események rendszeres és időzített kiváltása, például játékciklusok vagy animáció vezérlése.
+    Beállítása két lépésből áll:
+    - változó létrehozás / timer_1 = pygame.USEREVENT + 1 (több is létrehozható, de érdemes elkülöníteni egymástól, ezért van ott + 1)
+    - időköz beállítás / pygame.time.set_timer(timer_1, 1000) 
+        Paraméterei az esemény és milliszekundumban az időköz (ha másodpercenként szeretnénk, akkor az érték 1000) 
+
+A játékobjektumról:
+    Mozgása(emelkedés, oldalirányú mozgás):
+        Feladatunk egy for ciklust létrehozni az enumerate függvénnyel, amiben a rect objektumának koordinátáit növeljük vagy csökkentjük attól függően, hogy emelkedni vagy ereszkedni fognak ezek. Célszerű egy konstansban meghatározni a kivonandó vagy hozzáadandó értéket, amit a kód elején definiálunk. Majd egy számgenerálással megoldjuk azt, hogy véletlenszerűen mozogjanak az objektumok.
+
+    Képernyőt elhagyóak törlése:
+        Ha egy olyan játékról van szó, ahol sok objektum megjelenik újra és újra, de később elhagyja a képernyőt, akkor fontos gondolnunk a törlésükre, mivel ennek a listája feleslegesen telik fel a játék során és a memóriát nagy mértékben terheli. A példán látható, hogy megvizsgáljuk a lista egy tagjának az attribútumértékét és ha átlépi a megadott tartományt, akkor azok az elemek törlésre kerülnek.
+    
+    Találat vizsgálata:
+        A collidepoint() metódussal, értéke az egér pozíciója amit a get_pos metódussal kapunk meg. Részfeltételként vesszük, hogy csak akkor legyen érvényes találat, ha az egér egyik gombját lenyomjuk. Ha a feltételek teljesülnek, töröljük az elemet a listából, és a pontszámot növeljük.
+        Pontszám megjelenítése: A pontszám változóját és a betűtípust a ciklus előtt definiáljuk, a színt jelen esetben a kód elején konstansként. A megjelenítés a ciklus után történik.
+            
+Hátralévő játékidő kiszámítása és megjelenítése:
+    Elsőként a kód elején definiáljuk a játékidőt milliszekundumban egy konstansként. A kiinduló időt a ciklus előtt a pygame.time.get_ticks() metódussal hozzuk létre egy változóban. A ciklus után a képen látható változók szükségesek a kiszámításhoz és megjelenítéshez.
+
+Nem aktív játékállapot
+Nyitó- és záróképernyő feliratai:
+    Teljesen személyre szabhatóak, itt megjelenik a cím és az indításhoz szükséges billentyű leírása.
+Kétféle játékállapot létrehozása:
+    Szükséges egy logikai változó, ami azt mutatja majd meg, hogy aktív-e a játék. Ezután a játékciklust, kivéve a háttér kirajzolását egy if feltételbe tesszük, ami akkor teljesül, ha a játék(létrehozott változó) aktív. Minden ellenkező esetben pedig betöltjük a hátteret és jelen esetben még képeket is teszünk a képernyő közepére. Illetve megjelenik egy üzenet is, hogy mivel tudja elindítani a játékot. A pontszám kiírása a képen látható módon lehetséges ami a játék végeztével jeleníti azt meg.
+Játék indítása:
+    A játék nem aktív ciklusába kerül az, hogy melyik gomb lenyomásával indítható a játék, az eredeti néven egy új üres lista(ami által az elemei törlésre kerülnek minden játék alkalmával) az aktuális idő egy változóban és az a változó, ami meghatározza, hogy a játék jelenleg aktív-e egy aktív értéket felvéve.
+Megoldás a mínusz értéket felvevő játékidőre:
+    A játék aktív részében elhelyezhető egy feltétel, hogy a játékidő 0-nál véget érjen, csupán annyi, hogy ha a maradék idő kisebb, mint 0, akkor a változó, ami megmondja, hogy a játék aktív-e, vegyen fel hamis értéket.
