@@ -1,21 +1,21 @@
 $(document).ready(function () {
   $('#aktiv').click(function () {
     $('#content').html('');
-    $('#content').load('aktiv_data.txt')
+    $('#content').load('aktiv_data.html')
 
     toggleNav()
   })
 
   $('#nemaktiv').click(function () {
     $('#content').html('');
-    $('#content').load('nemaktiv_data.txt')
+    $('#content').load('nemaktiv_data.html')
 
     toggleNav()
   })
 
   $('#fuggvenyek').click(function () {
     $('#content').html('');
-    $('#content').load('fuggvenyek_data.txt')
+    $('#content').load('fuggvenyek_data.html')
 
     toggleNav()
   })
