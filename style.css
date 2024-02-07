@@ -83,13 +83,14 @@ body {
 
 .svg {
   fill: colorChange 10s infinite alternate;
+  stroke: colorChange 10s infinite alternate;
 }
 
 .sidenav {
   height: 100%;               
   width: 0;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
   background-color: #3e5c76;
@@ -143,7 +144,6 @@ body {
   }
 }
 
-
 #mySidenav a:hover{
   cursor:  pointer;
 }
@@ -167,12 +167,18 @@ body {
   top: 20px;
   left: 0;
   transition: left 0.5s;
-  z-index: 9;
+  z-index: 1;
+}
+
+.text-jutify {
+  text-align: justify;
 }
 
 #menuButton{
-  height: 8vh;
-  width: 8vw;
+  height: 70px;
+  width: 100px;
+  transform: translateX(-30px);
+  z-index: 1;
   
 
 }
