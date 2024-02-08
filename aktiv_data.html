@@ -12,7 +12,7 @@
   </div>
   <div class="row mb-3">
     <div class="col-md-12 col-lg-6">
-      <p class="text-justify mx-1">pygame.display.set_caption("játékablak neve") <br>
+      <p class="text-left mx-1">pygame.display.set_caption("játékablak neve") <br>
         <strong>Háttérkép betöltése:</strong> <br>
         Következőként a hátteret töltjük be, amit egy változó segítségével tehetünk meg. <br>
         &emsp;&emsp;<span class="code">bg_surf = pygame.image.load("elérés helye/kép neve").convert_alpha()</span> <br>
@@ -22,7 +22,7 @@
       <img class="img img-fluid mb-2" src="peldakepek\kepernyo_es_hatterkep.png" alt="Example code">
       <p class="text-justify mx-1 mb-3"><i>&emsp;&emsp;Attribútumként pedig azt vesszük, hogy hova szeretnénk igazítani
           a képet a játékablakban, jelen esetben ez a bal alsó sarokhoz igazítani</i></p> <br>
-      <p class="text-justify mx-1">Ezek után átlépünk a játék kódjához és ott meghívjuk a hátteret. <br>
+      <p class="text-left mx-1">Ezek után átlépünk a játék kódjához és ott meghívjuk a hátteret. <br>
         &emsp;&emsp;<span class="code">screen.blit(bg_surf, bg_rect)</span> <br>
         Futtatás után előfordulhat, hogy a kép kisebb, mint a játékablak, ezt többféleképpen javíthatjuk. Természetesen
         ezek a megoldások nem csak háttérképre vonatkoznak, bármilyen, a játékban megjelenő képre alkalmazhatjuk. <br>
@@ -47,8 +47,8 @@
     </div>
   </div>
   <div class="row mb-3">
-    <div class="col-12">
-      <p class="text-justify mx-1">
+    <div class="col-md-12 col-lg-6">
+      <p class="text-left mx-1">
         Ennek feladata az események rendszeres és időzített kiváltása, például játékciklusok vagy animáció vezérlése.
         <br>
         <strong>Beállítása két lépésből áll:</strong> <br>
@@ -59,6 +59,9 @@
           akkor az érték 1000)</i>
       </p>
     </div>
+    <div class="col-md-12 col-lg-6">
+      <img class="img-fluid mt-5" src="peldakepek\idozito.png" alt="example image">
+    </div>
   </div>
 
   <div class="row">
@@ -68,7 +71,7 @@
   </div>
   <div class="row mb-3">
     <div class="col-md-12 col-lg-6">
-      <p class="text-justify mx-1"><strong>Mozgása(emelkedés, oldalirányú mozgás):</strong> <br>
+      <p class="text-left mx-1"><strong>Mozgása(emelkedés, oldalirányú mozgás):</strong> <br>
         &emsp;&emsp;Feladatunk egy for ciklust létrehozni az enumerate függvénnyel, amiben a rect objektumának
         koordinátáit növeljük vagy csökkentjük attól függően, hogy emelkedni vagy ereszkedni fognak ezek. Célszerű egy
         konstansban meghatározni a kivonandó vagy hozzáadandó értéket, amit a kód elején definiálunk.
@@ -102,7 +105,7 @@
   </div>
   <div class="row mb-3">
     <div class="col-md-12 col-lg-6">
-      <p class="text-justify mx-1">Elsőként a kód elején definiáljuk a játékidőt milliszekundumban egy konstansként. <br> A
+      <p class="text-left mx-1">Elsőként a kód elején definiáljuk a játékidőt milliszekundumban egy konstansként. <br> A
         kiinduló időt a ciklus előtt a <span class="code">pygame.time.get_ticks()</span> metódussal hozzuk létre egy változóban. A ciklus után a
         képen látható változók szükségesek a kiszámításhoz és megjelenítéshez.
       </p>

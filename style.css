@@ -184,11 +184,17 @@ body {
   text-align: justify;
 }
 
+.col-12{
+  align-items: center;
+  align-content: center;
+}
+
 #menuButton{
   height: 70px;
   width: 100px;
   transform: translateX(-30px) translateY(50px);
   z-index: 1;
+  cursor: pointer;
 }
 
 .code {
@@ -202,6 +208,7 @@ body {
 .img-fluid{
   max-width: 80%;
   align-items: center;
+  align-self: center;
   border: 3px solid #3e5c76;
   border-radius: 15px;
 }
