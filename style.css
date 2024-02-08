@@ -12,6 +12,10 @@ body {
   font-size: 1.2em;
 }
 
+p {
+  word-wrap: break-word;
+}
+
 .sidenav a {
   color: inherit;
   text-decoration: none;
