@@ -3,12 +3,13 @@
 @import url('https://fonts.cdnfonts.com/css/nihonium113-console');
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'JetBrains Mono';
   overflow: visible;
   background-color: #0d1321;
   color: white;
   text-align: center;
   position: relative;
+  font-size: 1.2em;
 }
 
 .sidenav a {
@@ -198,8 +199,8 @@ body {
 }
 
 .code {
-  font-family: "JetBrains Mono";
-  font-size: 0.9em;
+  font-family: monospace;
+  font-size: 1.2em;
   padding: 4px;
   margin-top: 3px;
   margin-bottom: 3px;
