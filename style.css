@@ -202,6 +202,8 @@ body {
 .img-fluid{
   max-width: 80%;
   align-items: center;
+  border: 3px solid #3e5c76;
+  border-radius: 15px;
 }
 
 .sidebyside-imgs{
