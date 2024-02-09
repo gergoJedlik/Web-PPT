@@ -3,12 +3,17 @@
 @import url('https://fonts.cdnfonts.com/css/nihonium113-console');
 
 body {
-  font-family: "Lato", sans-serif;
+  font-family: 'JetBrains Mono';
   overflow: visible;
   background-color: #0d1321;
   color: white;
   text-align: center;
   position: relative;
+  font-size: 1.2em;
+}
+
+p {
+  word-wrap: break-word;
 }
 
 .sidenav a {
@@ -184,15 +189,22 @@ body {
   text-align: justify;
 }
 
+.col-12{
+  align-items: center;
+  align-content: center;
+}
+
 #menuButton{
   height: 70px;
   width: 100px;
   transform: translateX(-30px) translateY(50px);
   z-index: 1;
+  cursor: pointer;
 }
 
 .code {
-  font-size: 0.9em;
+  font-family: monospace;
+  font-size: 1.2em;
   padding: 4px;
   margin-top: 3px;
   margin-bottom: 3px;
@@ -200,8 +212,7 @@ body {
 }
 
 .img-fluid{
-  max-width: 80%;
-  align-items: center;
+  max-width: 90%;
   border: 3px solid #3e5c76;
   border-radius: 15px;
 }
