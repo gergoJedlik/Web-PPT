@@ -12,7 +12,7 @@
   </div>
   <div class="row mb-3">
     <div class="col-md-12 col-lg-6">
-      <p class="text-left mx-1">pygame.display.set_caption(játékablak neve) <br>
+      <p class="text-left mx-1"><span class="code">pygame.display.set_caption(játékablak neve)</span> <br>
         <strong>Háttérkép betöltése:</strong> <br>
         Következőként a hátteret töltjük be, amit egy változó segítségével tehetünk meg. <br>
         &emsp;&emsp;<span class="code">bg_surf = pygame.image.load(elérés helye/kép neve).convert_alpha()</span> <br>
@@ -84,7 +84,7 @@
         attribútumértékét és ha átlépi a megadott tartományt, akkor azok az elemek törlésre kerülnek. <br>
         <br>
         <strong>Találat vizsgálata:</strong> <br>
-        &emsp;&emsp;A <span class="code">collidepoint()</span> metódussal, értéke az egér pozíciója amit a get_pos
+        &emsp;&emsp;A <span class="code">collidepoint()</span> metódussal, értéke az egér pozíciója amit a <span class="code">get_pos()</span>
         metódussal kapunk meg. Részfeltételként vesszük, hogy csak akkor legyen érvényes találat, ha az egér egyik
         gombját lenyomjuk. Ha a feltételek teljesülnek, töröljük az elemet a listából, és a pontszámot növeljük.
         <br>&emsp;&emsp;
